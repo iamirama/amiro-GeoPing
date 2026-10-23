@@ -13,7 +13,7 @@ const vazirmatn = Vazirmatn({
 export const metadata: Metadata = {
   title: "شبکه‌سنج | NetCheck — ابزار تست شبکه از نقاط مختلف جهان",
   description:
-    "ابزار رایگان و متن‌باز برای اجرای تست‌های واقعی شبکه (Ping، TCP، UDP، DNS و HTTP/HTTPS) از پروب‌های واقعی در ایران و سایر کشورها. مبتنی بر API عمومی Globalping.",
+    "ابزار رایگان و متن‌باز برای اجرای تست‌های واقعی شبکه (Ping، TCP، UDP، DNS و HTTP/HTTPS) از سرور‌های واقعی در ایران و سایر کشورها. مبتنی بر API عمومی Globalping.",
   keywords: [
     "تست شبکه",
     "پینگ",

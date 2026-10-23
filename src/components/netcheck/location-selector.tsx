@@ -70,7 +70,7 @@ export function LocationSelector({ value, onChange }: LocationSelectorProps) {
             : null,
         );
       } catch (e) {
-        setError(e instanceof Error ? e.message : "خطا در بارگذاری پروب‌ها");
+        setError(e instanceof Error ? e.message : "خطا در بارگذاری سرور‌ها");
       } finally {
         setLoading(false);
       }
@@ -124,7 +124,7 @@ export function LocationSelector({ value, onChange }: LocationSelectorProps) {
           >
             <span className="flex items-center gap-2 truncate">
               <MapPin className="h-4 w-4 shrink-0 text-muted-foreground" />
-              {value ? value.label : "انتخاب موقعیت پروب…"}
+              {value ? value.label : "انتخاب موقعیت سرور…"}
             </span>
           </Button>
         </PopoverTrigger>
@@ -159,8 +159,8 @@ export function LocationSelector({ value, onChange }: LocationSelectorProps) {
             type="button"
             onClick={() => load(true)}
             disabled={loading}
-            aria-label="به‌روزرسانی فهرست پروب‌ها"
-            title="به‌روزرسانی فهرست پروب‌ها از سرور Globalping"
+            aria-label="به‌روزرسانی فهرست سرور‌ها"
+            title="به‌روزرسانی فهرست سرور‌ها از سرور Globalping"
           >
             <RefreshCw className={cn("h-4 w-4", loading && "animate-spin")} />
             <span className="sr-only">به‌روزرسانی</span>
@@ -191,7 +191,7 @@ export function LocationSelector({ value, onChange }: LocationSelectorProps) {
             )}
             {!error && !loading && countries.length === 0 && (
               <div className="p-4 text-sm text-muted-foreground">
-                هیچ پروبی در دسترس نیست. دکمه به‌روزرسانی را بزنید یا چند
+                هیچ سروری در دسترس نیست. دکمه به‌روزرسانی را بزنید یا چند
                 لحظه دیگر تلاش کنید.
               </div>
             )}
@@ -207,9 +207,9 @@ export function LocationSelector({ value, onChange }: LocationSelectorProps) {
             ) : (
               !loading && countries.length > 0 && (
                 <div className="mb-2 rounded-md border border-amber-500/40 bg-amber-500/10 p-3 text-sm text-amber-700 dark:text-amber-300">
-                  <div className="font-medium">ایران در حال حاضر پروب آنلاینی ندارد.</div>
+                  <div className="font-medium">ایران در حال حاضر سرور آنلاینی ندارد.</div>
                   <div className="text-xs mt-1">
-                    پروب‌های ایرانی در لحظه‌ای از فهرست خارج شده‌اند. می‌توانید
+                    سرور‌های ایرانی در لحظه‌ای از فهرست خارج شده‌اند. می‌توانید
                     با دکمه به‌روزرسانی دوباره بررسی کنید.
                   </div>
                 </div>
@@ -225,7 +225,7 @@ export function LocationSelector({ value, onChange }: LocationSelectorProps) {
         {totalProbes !== null && (
           <div className="border-t p-2 text-xs text-muted-foreground flex items-center justify-between shrink-0">
             <span>
-              {totalProbes.toLocaleString("fa-IR")} پروب آنلاین از{" "}
+              {totalProbes.toLocaleString("fa-IR")} سرور آنلاین از{" "}
               {countries.length.toLocaleString("fa-IR")} کشور
             </span>
             {cacheInfo && (
@@ -328,7 +328,7 @@ function GroupBlock({ group, filtered, onPick, pinned }: GroupBlockProps) {
             </Badge>
           )}
           <span className="text-xs text-muted-foreground">
-            {group.probeCount.toLocaleString("fa-IR")} پروب
+            {group.probeCount.toLocaleString("fa-IR")} سرور
           </span>
         </span>
         <span className="text-xs text-muted-foreground">
@@ -341,7 +341,7 @@ function GroupBlock({ group, filtered, onPick, pinned }: GroupBlockProps) {
             type="button"
             onClick={() =>
               onPick({
-                label: `${group.countryName} — همه پروب‌ها`,
+                label: `${group.countryName} — همه سرور‌ها`,
                 location: { country: group.countryCode },
                 iran,
                 probeCount: group.probeCount,
@@ -351,9 +351,9 @@ function GroupBlock({ group, filtered, onPick, pinned }: GroupBlockProps) {
           >
             <span className="flex items-center gap-2">
               <MapPin className="h-4 w-4 text-muted-foreground" />
-              همه پروب‌های آنلاین در {group.countryName}
+              همه سرور‌های آنلاین در {group.countryName}
             </span>
-            <Badge variant="secondary">{group.probeCount.toLocaleString("fa-IR")} پروب</Badge>
+            <Badge variant="secondary">{group.probeCount.toLocaleString("fa-IR")} سرور</Badge>
           </button>
           {filtered.cities.length > 0 && (
             <div className="mb-2">
@@ -390,7 +390,7 @@ function GroupBlock({ group, filtered, onPick, pinned }: GroupBlockProps) {
                   <span className="flex items-center gap-2 text-xs text-muted-foreground">
                     <Badge variant="outline" className="tnum">ASN {n.asn.toLocaleString("fa-IR")}</Badge>
                     {n.city && <span>{n.city}</span>}
-                    <span>{n.probeCount.toLocaleString("fa-IR")} پروب</span>
+                    <span>{n.probeCount.toLocaleString("fa-IR")} سرور</span>
                   </span>
                 </button>
               ))}
@@ -422,7 +422,7 @@ function CityRow({
         type="button"
         onClick={() =>
           onPick({
-            label: `${city.city} — همه پروب‌ها (${city.countryCode})`,
+            label: `${city.city} — همه سرور‌ها (${city.countryCode})`,
             location: { country: city.countryCode, city: city.city },
             iran,
             probeCount: city.probeCount,
@@ -434,7 +434,7 @@ function CityRow({
           <MapPin className="h-4 w-4 text-muted-foreground" />
           {city.city}
         </span>
-        <Badge variant="secondary">{city.probeCount.toLocaleString("fa-IR")} پروب</Badge>
+        <Badge variant="secondary">{city.probeCount.toLocaleString("fa-IR")} سرور</Badge>
       </button>
       {city.networks.map((n) => (
         <button

@@ -48,8 +48,8 @@ const portSchema = z
 const limitSchema = z
   .number()
   .int()
-  .min(GLOBALPING_LIMITS.limitMin, `تعداد پروب باید حداقل ${GLOBALPING_LIMITS.limitMin} باشد`)
-  .max(50, "تعداد پروب بیش از حد زیاد است — حداکثر ۵۰ پروب در هر درخواست")
+  .min(GLOBALPING_LIMITS.limitMin, `تعداد سرور باید حداقل ${GLOBALPING_LIMITS.limitMin} باشد`)
+  .max(50, "تعداد سرور بیش از حد زیاد است — حداکثر ۵۰ سرور در هر درخواست")
   .default(1);
 
 const packetsSchema = z
@@ -88,8 +88,8 @@ const httpMethodSchema = z.enum(["HEAD", "GET", "OPTIONS"]);
 const locationLimitSchema = z
   .number()
   .int()
-  .min(GLOBALPING_LIMITS.limitMin, `تعداد پروب باید حداقل ${GLOBALPING_LIMITS.limitMin} باشد`)
-  .max(50, "تعداد پروب بیش از حد زیاد است — حداکثر ۵۰ پروب در هر درخواست");
+  .min(GLOBALPING_LIMITS.limitMin, `تعداد سرور باید حداقل ${GLOBALPING_LIMITS.limitMin} باشد`)
+  .max(50, "تعداد سرور بیش از حد زیاد است — حداکثر ۵۰ سرور در هر درخواست");
 
 const locationSchema = z
   .object({

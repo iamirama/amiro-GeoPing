@@ -79,7 +79,7 @@ export function ResultsPanel({
     return (
       <Card className="p-6 text-center text-sm text-muted-foreground">
         <Clock className="mx-auto mb-2 h-5 w-5 animate-pulse" />
-        در حال اجرای اندازه‌گیری از پروب‌ها…
+        در حال اجرای اندازه‌گیری از سرور‌ها…
       </Card>
     );
   }
@@ -188,12 +188,12 @@ function ResultsView({ interpretation, status, onClear }: ResultsViewProps) {
             {interpretation.usedIranProbe ? (
               <span>
                 <ShieldAlert className="ml-1 inline h-4 w-4 align-middle" />
-                موقعیت ایران انتخاب شد و پاسخ از پروب واقعی داخل ایران دریافت شد.
+                موقعیت ایران انتخاب شد و پاسخ از سرور واقعی داخل ایران دریافت شد.
               </span>
             ) : (
               <span>
                 <ShieldAlert className="ml-1 inline h-4 w-4 align-middle" />
-                موقعیت ایران انتخاب شد اما هیچ پروب ایرانی در این نتیجه شرکت نکرد.
+                موقعیت ایران انتخاب شد اما هیچ سرور ایرانی در این نتیجه شرکت نکرد.
                 این نتیجه نباید به‌عنوان پاسخ از داخل ایران تفسیر شود.
               </span>
             )}
@@ -206,8 +206,8 @@ function ResultsView({ interpretation, status, onClear }: ResultsViewProps) {
         {interpretation.probes.length === 0 && (
           <div className="p-6 text-center text-sm text-muted-foreground">
             {status === "polling"
-              ? "در انتظار دریافت اولین پاسخ پروب…"
-              : "هیچ پروبی در این اندازه‌گیری شرکت نکرد."}
+              ? "در انتظار دریافت اولین پاسخ سرور…"
+              : "هیچ سروری در این اندازه‌گیری شرکت نکرد."}
           </div>
         )}
         {interpretation.probes.map((p, idx) => (

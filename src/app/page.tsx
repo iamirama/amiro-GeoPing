@@ -25,7 +25,7 @@ export default function HomePage() {
     httpMethod: "HEAD",
     limit: 1,
     location: {
-      label: "ایران — همه پروب‌های آنلاین",
+      label: "ایران — همه سرور‌های آنلاین",
       location: { country: "IR" },
       iran: true,
     },
@@ -47,7 +47,9 @@ export default function HomePage() {
       <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-30">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
           <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg overflow-hidden bg-primary text-primary-foreground">
+              <img src="/logo.svg" alt="NetCheck Logo" className="h-full w-full object-cover" />
+            </div>
               <Activity className="h-5 w-5" />
             </div>
             <div>
@@ -57,14 +59,13 @@ export default function HomePage() {
           </div>
           <div className="flex items-center gap-2">
             <a
-              href="https://github.com/jsdelivr/globalping"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-1 rounded-md border px-3 py-1.5 text-sm hover:bg-accent/50"
-              title="قدرت‌گرفته از Globalping"
-            >
-              <Github className="h-4 w-4" />
-              <span>Globalping</span>
+              href="https://github.com/iamirama"
+               target="_blank"
+               rel="noreferrer"
+               className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+               >
+               <Github className="h-4 w-4" />
+               <span>ساخته شده توسط <b>Amirhoseini</b></span>
             </a>
             <ThemeToggle />
           </div>
@@ -75,15 +76,15 @@ export default function HomePage() {
         {/* Hero */}
         <section className="mb-6">
           <h1 className="text-2xl font-bold sm:text-3xl">
-            آزمون واقعی شبکه از پروب‌های ایران و جهان
+            آزمون واقعی شبکه از سرور‌های ایران و جهان
           </h1>
           <p className="mt-2 max-w-3xl text-sm text-muted-foreground">
-            شبکه‌سنج با استفاده از شبکه عمومی پروب‌های{" "}
+            شبکه‌سنج با استفاده از شبکه عمومی سرور‌های{" "}
             <span className="font-medium">Globalping</span>، تست‌های Ping،
             TCP، UDP، DNS و HTTP/HTTPS را از مکان‌های واقعی اجرا می‌کند.
             تمام نتایج از اندازه‌گیری‌های واقعی به دست می‌آیند — هیچ دادهٔ
             جعلی یا ساختگی وجود ندارد. موقعیت ایران به‌صورت پیش‌فرض در دسترس
-            است و در صورت نبود پروب ایرانی، صراحتاً اعلام می‌شود.
+            است و در صورت نبود سرور ایرانی، صراحتاً اعلام می‌شود.
           </p>
         </section>
 
@@ -103,7 +104,7 @@ export default function HomePage() {
                   className="text-primary underline"
                   onClick={stop}
                 >
-                  توقف نظارت (سرور-side همچنان اجرا می‌شود)
+                  توقف نظارت (سمت-سرور همچنان اجرا می‌شود)
                 </button>
               </div>
             )}
@@ -131,8 +132,8 @@ export default function HomePage() {
           />
           <Caveat
             icon={Globe}
-            title="پروب‌های ایران"
-            body="موقعیت ایران به‌صورت پیش‌فرض و در صدر فهرست قرار دارد. اگر پروب آنلاینی در ایران نباشد، صریحاً اعلام می‌شود."
+            title="سرور‌های ایران"
+            body="موقعیت ایران به‌صورت پیش‌فرض و در صدر فهرست قرار دارد. اگر سرور آنلاینی در ایران نباشد، صریحاً اعلام می‌شود."
           />
           <Caveat
             icon={Heart}

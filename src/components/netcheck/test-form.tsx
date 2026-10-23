@@ -62,13 +62,13 @@ const TEST_KINDS: TestKindMeta[] = [
   {
     kind: "dns",
     title: "DNS",
-    description: "پرس‌وجوی رکورد DNS از پروب واقعی",
+    description: "پرس‌وجوی رکورد DNS از سرور واقعی",
     icon: Globe,
   },
   {
     kind: "http",
     title: "HTTP/HTTPS",
-    description: "درخواست HTTP واقعی از پروب",
+    description: "درخواست HTTP واقعی از سرور",
     icon: SearchIcon,
   },
 ];
@@ -371,12 +371,12 @@ export function TestForm({
       {/* Location + limit */}
       <div className="grid gap-4 md:grid-cols-[1fr_auto]">
         <div className="space-y-2">
-          <Label>موقعیت پروب</Label>
+          <Label>موقعیت سرور</Label>
           <LocationSelector
   value={value.location}
   onChange={(l) => {
-    const isAllProbes = l?.label.includes("همه پروب‌ها");
-    // گرفتن تعداد واقعی پراب‌ها (حداکثر تا ۵۰ تا که توی فیلد مجاز است)
+    const isAllProbes = l?.label.includes("همه سرور‌ها");
+    // گرفتن تعداد واقعی سرور‌ها (حداکثر تا ۵۰ تا که توی فیلد مجاز است)
     const newLimit = isAllProbes ? Math.min(l.probeCount || 50, 50) : 1;
     patch({ 
       location: l, 
@@ -389,12 +389,12 @@ export function TestForm({
               <Badge variant="outline" className="border-emerald-500/40 text-emerald-700 dark:text-emerald-300">
                 ایران انتخاب شد
               </Badge>
-              <span>پاسخ باید از پروب ایرانی برسد؛ در غیر این صورت به‌صورت صریح اعلام می‌شود.</span>
+              <span>پاسخ باید از سرور ایرانی برسد؛ در غیر این صورت به‌صورت صریح اعلام می‌شود.</span>
             </div>
           )}
         </div>
         <div className="space-y-2">
-          <Label htmlFor="limit">تعداد پروب</Label>
+          <Label htmlFor="limit">تعداد سرور</Label>
           <Input
             id="limit"
             type="number"
