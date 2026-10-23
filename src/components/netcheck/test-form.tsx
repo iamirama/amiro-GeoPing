@@ -375,11 +375,12 @@ export function TestForm({
           <LocationSelector
   value={value.location}
   onChange={(l) => {
-    // اگر کاربر لوکیشنی انتخاب کرد که شامل همه پروب‌هاست، limit را خودکار روی ۴ بگذار
     const isAllProbes = l?.label.includes("همه پروب‌ها");
+    // گرفتن تعداد واقعی پراب‌ها (حداکثر تا ۵۰ تا که توی فیلد مجاز است)
+    const newLimit = isAllProbes ? Math.min(l.probeCount || 50, 50) : 1;
     patch({ 
       location: l, 
-      limit: isAllProbes ? 4 : 1 
+      limit: newLimit 
     });
   }}
 />

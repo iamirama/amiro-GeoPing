@@ -22,6 +22,7 @@ export interface SelectedLocation {
   location: MeasurementLocationOption;
   /** True when this location was specifically an Iranian one. */
   iran: boolean;
+  probeCount?: number;
 }
 
 interface ProbesApiResponse {
@@ -343,6 +344,7 @@ function GroupBlock({ group, filtered, onPick, pinned }: GroupBlockProps) {
                 label: `${group.countryName} — همه پروب‌ها`,
                 location: { country: group.countryCode },
                 iran,
+                probeCount: group.probeCount,
               })
             }
             className="mb-2 flex w-full items-center justify-between rounded-md p-2 text-sm hover:bg-accent/60"
@@ -423,6 +425,7 @@ function CityRow({
             label: `${city.city} — همه پروب‌ها (${city.countryCode})`,
             location: { country: city.countryCode, city: city.city },
             iran,
+            probeCount: city.probeCount,
           })
         }
         className="flex w-full items-center justify-between rounded-md p-2 text-sm hover:bg-accent/60"
