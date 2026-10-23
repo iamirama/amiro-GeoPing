@@ -140,10 +140,10 @@ export function LocationSelector({ value, onChange }: LocationSelectorProps) {
         )}
       </div>
       <PopoverContent
-        className="w-[min(560px,95vw)] p-0 bg-background border shadow-lg z-50"
-          align="start"
+        className="w-[min(560px,95vw)] p-0 flex flex-col max-h-[80vh] bg-popover text-popover-foreground border shadow-lg z-50 overflow-hidden"
+        align="start"
           >
-        <div className="flex items-center gap-2 border-b p-2">
+        <div className="flex items-center gap-2 border-b p-2 shrink-0">
           <Search className="h-4 w-4 text-muted-foreground" />
           <Input
             value={query}
@@ -165,7 +165,7 @@ export function LocationSelector({ value, onChange }: LocationSelectorProps) {
             <span className="sr-only">به‌روزرسانی</span>
           </Button>
         </div>
-        <ScrollArea className="netcheck-scroll max-h-96">
+        <ScrollArea className="netcheck-scroll flex-1">
           <div className="p-2">
             {error && (
               <div className="rounded-md border border-destructive/50 bg-destructive/10 p-3 text-sm text-destructive">
@@ -222,7 +222,7 @@ export function LocationSelector({ value, onChange }: LocationSelectorProps) {
           </div>
         </ScrollArea>
         {totalProbes !== null && (
-          <div className="border-t p-2 text-xs text-muted-foreground flex items-center justify-between">
+          <div className="border-t p-2 text-xs text-muted-foreground flex items-center justify-between shrink-0">
             <span>
               {totalProbes.toLocaleString("fa-IR")} پروب آنلاین از{" "}
               {countries.length.toLocaleString("fa-IR")} کشور
