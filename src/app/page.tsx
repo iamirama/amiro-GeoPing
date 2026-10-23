@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Activity, Github, Globe, Heart, ShieldCheck } from "lucide-react";
+import { Github, Globe, Heart, ShieldCheck } from "lucide-react";
 
 import { Card } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/netcheck/theme-toggle";
@@ -45,32 +45,31 @@ export default function HomePage() {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-30">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
-          <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg overflow-hidden bg-primary text-primary-foreground">
-              <img src="/logo.svg" alt="NetCheck Logo" className="h-full w-full object-cover" />
-            </div>
-              <Activity className="h-5 w-5" />
-            </div>
-            <div>
-              <div className="font-semibold leading-tight">شبکه‌سنج</div>
-              <div className="text-xs text-muted-foreground">NetCheck — تست واقعی شبکه</div>
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <a
-              href="https://github.com/iamirama"
-               target="_blank"
-               rel="noreferrer"
-               className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
-               >
-               <Github className="h-4 w-4" />
-               <span>ساخته شده توسط <b>Amirhoseini</b></span>
-            </a>
-            <ThemeToggle />
-          </div>
-        </div>
-      </header>
+  <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
+    <div className="flex items-center gap-3">
+      <div className="flex h-9 w-9 items-center justify-center rounded-lg overflow-hidden bg-primary text-primary-foreground">
+        <img src="/logo.svg" alt="NetCheck Logo" className="h-full w-full object-cover" />
+      </div>
+      <div>
+        <div className="font-semibold leading-tight">شبکه‌سنج</div>
+        <div className="text-xs text-muted-foreground">NetCheck — تست واقعی شبکه</div>
+      </div>
+    </div>
+    
+    <div className="flex items-center gap-2">
+      <a
+        href="https://github.com/iamirama"
+        target="_blank"
+        rel="noreferrer"
+        className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <Github className="h-4 w-4" />
+        <span>ساخته شده توسط <b>Amirhoseini</b></span>
+      </a>
+      <ThemeToggle />
+    </div>
+  </div>
+</header>
 
       <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-6">
         {/* Hero */}
