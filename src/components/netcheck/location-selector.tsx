@@ -140,9 +140,9 @@ export function LocationSelector({ value, onChange }: LocationSelectorProps) {
         )}
       </div>
       <PopoverContent
-        className="w-[min(560px,95vw)] p-0"
-        align="start"
-      >
+        className="w-[min(560px,95vw)] p-0 bg-background border shadow-lg z-50"
+          align="start"
+          >
         <div className="flex items-center gap-2 border-b p-2">
           <Search className="h-4 w-4 text-muted-foreground" />
           <Input

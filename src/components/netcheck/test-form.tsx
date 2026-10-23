@@ -373,9 +373,16 @@ export function TestForm({
         <div className="space-y-2">
           <Label>موقعیت پروب</Label>
           <LocationSelector
-            value={value.location}
-            onChange={(l) => patch({ location: l })}
-          />
+  value={value.location}
+  onChange={(l) => {
+    // اگر کاربر لوکیشنی انتخاب کرد که شامل همه پروب‌هاست، limit را خودکار روی ۴ بگذار
+    const isAllProbes = l?.label.includes("همه پروب‌ها");
+    patch({ 
+      location: l, 
+      limit: isAllProbes ? 4 : 1 
+    });
+  }}
+/>
           {value.location?.iran && (
             <div className="flex items-center gap-2 text-xs text-emerald-700 dark:text-emerald-300">
               <Badge variant="outline" className="border-emerald-500/40 text-emerald-700 dark:text-emerald-300">
