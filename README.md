@@ -13,7 +13,7 @@
 
 <br />
 
-[مشاهده دموی زنده (Live Demo)](https://amiro-geo-ping.vercel.app) • [گزارش باگ (Report Bug)](https://github.com/iamirama/amiro-GeoPing/issues) • [درخواست ویژگی (Request Feature)](https://github.com/iamirama/amiro-GeoPing/issues)
+[مشاهده دموی زنده (Live Demo)](https://pingo.amirsec.xyz) • [گزارش باگ (Report Bug)](https://github.com/iamirama/amiro-GeoPing/issues) • [درخواست ویژگی (Request Feature)](https://github.com/iamirama/amiro-GeoPing/issues)
 
 </div>
 
