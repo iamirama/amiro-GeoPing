@@ -131,7 +131,7 @@ function ResultsView({ interpretation, status, onClear }: ResultsViewProps) {
   }
 
   return (
-    <Card className="overflow-hidden">
+    <Card className="overflow-hidden min-w-0">
       {/* Header */}
       <div className="border-b bg-muted/30 p-4">
         <div className="flex flex-wrap items-start justify-between gap-3">
@@ -393,7 +393,7 @@ function RawOutput({ raw }: { raw: InterpretedProbe["raw"] }) {
           <div className="mb-1 text-xs text-muted-foreground">خروجی خام</div>
           <pre
             dir="ltr"
-            className="max-h-72 overflow-auto rounded-md bg-muted p-3 text-xs leading-relaxed netcheck-scroll"
+            className="max-h-72 overflow-auto whitespace-pre-wrap break-all rounded-md bg-muted p-3 text-xs leading-relaxed netcheck-scroll"
           >
             {text}
           </pre>
@@ -419,7 +419,7 @@ function RawOutput({ raw }: { raw: InterpretedProbe["raw"] }) {
                     <td className="py-1 tnum" dir="ltr">{ans.name}</td>
                     <td className="py-1">{ans.type}</td>
                     <td className="py-1 tnum">{ans.ttl}</td>
-                    <td className="py-1 tnum" dir="ltr">{ans.value}</td>
+                    <td className="py-1 tnum break-all" dir="ltr">{ans.value}</td>
                   </tr>
                 );
               })}
@@ -433,7 +433,7 @@ function RawOutput({ raw }: { raw: InterpretedProbe["raw"] }) {
         </summary>
         <pre
           dir="ltr"
-          className="mt-2 max-h-72 overflow-auto rounded-md bg-muted p-3 text-xs leading-relaxed netcheck-scroll"
+          className="mt-2 max-h-72 overflow-auto whitespace-pre-wrap break-all rounded-md bg-muted p-3 text-xs leading-relaxed netcheck-scroll"
         >
           {JSON.stringify(raw, null, 2)}
         </pre>

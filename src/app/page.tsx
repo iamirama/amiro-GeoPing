@@ -1,6 +1,8 @@
 "use client";
+
 import { useMemo, useState } from "react";
 import { Github, Globe, Heart, ShieldCheck } from "lucide-react";
+
 import { Card } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/netcheck/theme-toggle";
 import {
@@ -33,7 +35,6 @@ export default function HomePage() {
     useMeasurement();
 
   const requestBody = useMemo(() => buildRequestBody(formValue), [formValue]);
-
   const isLoading = status === "creating" || status === "polling";
 
   function handleSubmit() {
@@ -47,20 +48,14 @@ export default function HomePage() {
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
           <div className="flex items-center gap-3">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg overflow-hidden bg-primary text-primary-foreground">
-              <img
-                src="/logo.svg"
-                alt="NetCheck Logo"
-                className="h-full w-full object-cover"
-              />
+              <img src="/logo.svg" alt="NetCheck Logo" className="h-full w-full object-cover" />
             </div>
             <div>
               <div className="font-semibold leading-tight">شبکه‌سنج</div>
-              <div className="text-xs text-muted-foreground">
-                NetCheck — تست شبکه
-              </div>
+              <div className="text-xs text-muted-foreground">NetCheck — تست واقعی شبکه</div>
             </div>
           </div>
-
+          
           <div className="flex items-center gap-2">
             <a
               href="https://github.com/iamirama"
@@ -69,9 +64,7 @@ export default function HomePage() {
               className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <Github className="h-4 w-4" />
-              <span>
-                ساخته شده توسط <b>Amirhoseini</b>
-              </span>
+              <span>ساخته شده توسط <b>Amirhoseini</b></span>
             </a>
             <ThemeToggle />
           </div>
@@ -82,14 +75,15 @@ export default function HomePage() {
         {/* Hero */}
         <section className="mb-6">
           <h1 className="text-2xl font-bold sm:text-3xl">
-            آزمون شبکه از سرور‌های ایران و جهان
+            آزمون واقعی شبکه از سرور‌های ایران و جهان
           </h1>
           <p className="mt-2 max-w-3xl text-sm text-muted-foreground">
             شبکه‌سنج با استفاده از شبکه عمومی سرور‌های{" "}
             <span className="font-medium">Globalping</span>، تست‌های Ping،
-            TCP، UDP، DNS و HTTP/HTTPS را از مکان‌های مختلف اجرا می‌کند.
-            نتایج مستقیماً از اندازه‌گیری‌ها دریافت می‌شوند و موقعیت ایران
-            به‌صورت پیش‌فرض در دسترس است.
+            TCP، UDP، DNS و HTTP/HTTPS را از مکان‌های واقعی اجرا می‌کند.
+            تمام نتایج از اندازه‌گیری‌های واقعی به دست می‌آیند — هیچ دادهٔ
+            جعلی یا ساختگی وجود ندارد. موقعیت ایران به‌صورت پیش‌فرض در دسترس
+            است و در صورت نبود سرور ایرانی، صراحتاً اعلام می‌شود.
           </p>
         </section>
 
@@ -116,7 +110,7 @@ export default function HomePage() {
           </Card>
 
           {/* Results */}
-          <div>
+          <div className="min-w-0 w-full">
             <ResultsPanel
               measurement={measurement}
               iranRequested={iranRequested}
@@ -128,22 +122,22 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Info section */}
+        {/* Honest caveat section */}
         <section className="mt-8 grid gap-4 md:grid-cols-3">
           <Caveat
             icon={ShieldCheck}
-            title="اندازه‌گیری مستقیم"
-            body="هر تست از طریق API عمومی Globalping اجرا می‌شود و نتایج به‌صورت مستقیم از سرورها دریافت می‌شوند."
+            title="نتایج واقعی، بدون جعل"
+            body="هر تست از طریق API عمومی Globalping اجرا می‌شود. هیچ نتیجهٔ نمایش‌داده‌شده‌ای شبیه‌سازی یا تصادفی نیست."
           />
           <Caveat
             icon={Globe}
             title="سرور‌های ایران"
-            body="موقعیت ایران به‌صورت پیش‌فرض و در صدر فهرست قرار دارد. در صورت در دسترس نبودن سرور ایرانی، وضعیت به کاربر اطلاع داده می‌شود."
+            body="موقعیت ایران به‌صورت پیش‌فرض و در صدر فهرست قرار دارد. اگر سرور آنلاینی در ایران نباشد، صریحاً اعلام می‌شود."
           />
           <Caveat
             icon={Heart}
             title="رایگان و متن‌باز"
-            body="بدون نیاز به کلید API پولی یا سرور اختصاصی. بر اساس سهمیهٔ عمومی Globalping کار می‌کند."
+            body="بدون نیاز به کلید API پولی یا سرور اختصاصی. بر اساس سهمیهٔ ناشناس Globalping کار می‌کند."
           />
         </section>
       </main>
@@ -177,6 +171,7 @@ export default function HomePage() {
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
+
 function Caveat({
   icon: Icon,
   title,
@@ -203,12 +198,10 @@ function Caveat({
  */
 function buildRequestBody(v: TestFormValue): unknown | null {
   if (!v.target.trim() || !v.location) return null;
-
   const base = {
     limit: v.limit ?? 1,
     locations: [v.location.location],
   };
-
   switch (v.kind) {
     case "ping":
       return {
@@ -242,10 +235,7 @@ function buildRequestBody(v: TestFormValue): unknown | null {
         ...base,
       };
     case "http": {
-      const target = v.target
-        .trim()
-        .replace(/^https?:\/\//i, "")
-        .replace(/\/$/, "");
+      const target = v.target.trim().replace(/^https?:\/\//i, "").replace(/\/.*$/, "");
       return {
         kind: "http",
         target,
